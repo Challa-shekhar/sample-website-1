@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const ip = require('node-local-ip-address')();
 const app = express()
 
 const apiKey = '5d40ebe321e9c8082477f8dca92b6bb5';
@@ -10,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
+  console.log('Hi, I am get call', ip);
   res.render('index', {weather: null, error: null});
 })
 
