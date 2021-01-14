@@ -13,9 +13,9 @@
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
-        <p><%= ip %></p>
         <% if(weather !== null){ %>
           <p><%= weather %></p>
+          <p><%= ip %></p>
         <% } %>
 
         <% if(error !== null){ %>

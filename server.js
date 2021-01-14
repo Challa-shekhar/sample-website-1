@@ -19,7 +19,7 @@ for (var k in interfaces) {
         }
     }
 }
-console.log(addresses);
+console.log(addresses[0]);
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
   console.log('Hi, I am get call', ip);
-  res.render('index', {weather: null, error: null, ip: addresses});
+  res.render('index', {weather: null, error: null, ip: ip});
 })
 
 app.post('/', function (req, res) {
@@ -35,15 +35,18 @@ app.post('/', function (req, res) {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 
   request(url, function (err, response, body) {
+   
+    console.log(addresses[0]);
+
     if(err){
-      res.render('index', {weather: null, error: 'Error, please try again'});
+      res.render('index', {weather: null, error: 'Error, please try again', ip:addresses[0]});
     } else {
       let weather = JSON.parse(body)
       if(weather.main == undefined){
-        res.render('index', {weather: null, error: 'Error, please try again'});
+        res.render('index', {weather: null, error: 'Error, please try again', ip:addresses[0]});
       } else {
-        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-        res.render('index', {weather: weatherText, error: null});
+        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}! \n server ip: ${addresses}`;
+        res.render('index', {weather: weatherText, error: null, ip:addresses[0]});
       }
     }
   });
