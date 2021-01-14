@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 pipeline{
     agent{
         label "slave01"
@@ -17,33 +17,4 @@ pipeline{
         }
     }
 }
-=======
-pipeline {
-  agent any
-    
-  tools {nodejs "node"}
-    
-  stages {
-        
-    stage('Git') {
-      steps {
-        git 'https://github.com/Challa-shekhar/sample-website-1'
-      }
-    }
-     
-    stage('Build') {
-      steps {
-        sh 'npm install'
-         sh 'npm install'
-      }
-    }  
-    
-            
-    stage('Test') {
-      steps {
-        sh 'node test'
-      }
-    }
-  }
-}
->>>>>>> 1ea4709884b309c520fa499af6b59854860c3f89
+
