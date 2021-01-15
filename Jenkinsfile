@@ -1,7 +1,7 @@
 
 pipeline{
     agent{
-        label "slave01"
+        label "jenkins-slave01"
     }
     stages{
         stage("git checkout"){
