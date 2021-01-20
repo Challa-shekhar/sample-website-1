@@ -1,18 +1,27 @@
 
-pipeline{
-    agent{
+pipeline {
+    agent {
         label "master"
     }
-    stages{
-        stage("git checkout"){
+    stages {
+        stage("Git checkout"){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/Challa-shekhar/sample-website-1']]])
+                git credentialsId: 'git', url: 'https://github.com/Challa-shekhar/sample-website-1'
             }
-
         }
-        stage("npm build"){
+        stage("running npm install"){
             steps{
                 sh "npm install"
+            }
+        }
+        stage("installing pm2"){
+            steps{
+                sh "npm install pm2"
+            }
+        }
+        stage("start the website"){
+            steps{
+                sh  "nohup node server.js &"
             }
         }
     }
