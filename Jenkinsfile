@@ -14,7 +14,7 @@ pipeline {
                 sh "npm install"
             }
         }
-        stage("PM2 setup"){
+        stage("PM2 setup1"){
             steps{
                 sh "npm install pm2"
             }
