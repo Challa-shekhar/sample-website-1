@@ -1,0 +1,5 @@
+Hi, This iS my first git file
+//to push a file from local to git repo
+git add.
+git commit -m "first checkin"
+git push
