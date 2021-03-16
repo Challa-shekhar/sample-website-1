@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const ip = require('node-local-ip-address')();
 const os = require('os');
+const { Console } = require('console');
 const app = express()
 
 const apiKey = '5d40ebe321e9c8082477f8dca92b6bb5';
@@ -20,6 +21,7 @@ for (var k in interfaces) {
     }
 }
 console.log(addresses[0]);
+Console.log("THis was wroitten by SAi");
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
