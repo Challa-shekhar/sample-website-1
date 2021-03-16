@@ -3,3 +3,4 @@ Hi, This iS my first git file
 git add.
 git commit -m "first checkin"
 git push
+we can use git commit -am "msg" 
