@@ -20,7 +20,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "node-local-ip-address": "0.0.3",
     "request": "^2.81.0",
     "request-ip": "^2.1.3"
